@@ -3,7 +3,7 @@ const app = express();
 
 app.listen(4000, () => console.log("listening on 4000"));
 
-const { compare, chooseNumberOfGame,  startGame, checkIfGameOver, getCountP2, getCountP1, getNumberOfPlays } = require("./index");
+const { compare, chooseNumberOfGame,  checkIfGameOver,startGame, getCountP2, getCountP1, getNumberOfPlays } = require("./index");
 
 let player1Selection, player2Selection;
 let player1;
@@ -42,10 +42,10 @@ app.get('/player1Selection', (req, res) => {
   player1Selection = selection1;
   if (player1Selection !== "rock" && player1Selection !== "Rock" && player1Selection !== "paper" && player1Selection !== "Paper" &&
     player1Selection !== "scissors" && player1Selection !== "Scissors") {
-    res.send (`${player1},you chose ${player1Selection}. Please enter the right selection from rock, paper and scissors by using curl http://localhost:4000/player1Selection?selection1={selection1}`) 
+    res.send(`${player1},you chose ${player1Selection}. Please enter the right selection from rock, paper and scissors by using curl http://localhost:4000/player1Selection?selection1={selection1}`)
   } else {
-    res.send (`${player1},you chose ${player1Selection}. ${player2}, please select your option from here: curl http://localhost:4000/player2Selection?selection2={selection2}`)
-}
+    res.send(`${player1},you chose ${player1Selection}. ${player2}, please select your option from here: curl http://localhost:4000/player2Selection?selection2={selection2}`)
+  }
 });
 
 app.get('/player2Selection', (req, res) => {
@@ -54,13 +54,10 @@ app.get('/player2Selection', (req, res) => {
   if (player2Selection !== "rock" && player2Selection !== "Rock" && player2Selection !== "paper" && player2Selection !== "Paper" &&
     player2Selection !== "scissors" && player2Selection !== "Scissors") {
     res.send(`${player2}, you chose ${player2Selection}. Please enter the right selection from rock, paper and scissors by using curl http://localhost:4000/player2Selection?selection2={selection2} `)
-    }else{
-      res.send(`${player2}, you selected ${player2Selection}. Please see the result of the game for this time here: curl http://localhost:4000/gameResultThisTime`)
-    }
-    });
-     
- 
- 
+  } else {
+    res.send(`${player2}, you selected ${player2Selection}. Please see the result of the game for this time here: curl http://localhost:4000/gameResultThisTime`)
+  }
+});
 
 app.get('/gameResultThisTime', (req, res) => {
   let winnerThisTime = compare(player1Selection, player2Selection, player1, player2)
