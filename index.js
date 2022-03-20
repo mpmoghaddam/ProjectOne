@@ -18,25 +18,6 @@ const chooseNumberOfGame = (numberOfPlaysInput) => {
     return `you want to play ${numberOfPlays} times curl http://localhost:4000/player1Selection?selection1={selection1}`;
   }
 }
-
-const player1Choice = (player1Selection, player1) => {
-  if (player1Selection !== "rock" && player1Selection !== "Rock" && player1Selection !== "paper" && player1Selection !== "Paper" &&
-    player1Selection !== "scissors" && player1Selection !== "Scissors") {
-    return `${player1},you chose ${player1Selection}. Please enter the right selection from rock, paper and scissors. Please select again curl http://localhost:4000/player1Selection?selection1={selection1} `
-  } else {
-    return player1Selection
-  }
-}
-
-const player2Choice = (player2Selection, player2) => {
-  if (player2Selection !== "rock" && player2Selection !== "Rock" && player2Selection !== "paper" && player2Selection !== "Paper" &&
-    player2Selection !== "scissors" && player2Selection !== "Scissors") {
-    return `${player2}, you chose ${player2Selection}. Please enter the right selection from rock, paper and scissors. Please select again curl http://localhost:4000/player2Selection?selection2={selection2} `
-  } else {
-    return player2Selection
-  }
-}
-
 const getCountP1 = () => {
   return countp1;
 }
@@ -93,4 +74,4 @@ function compare(a, b, c, d) {
     }
   }
 }
-module.exports = { compare, chooseNumberOfGame, player1Choice, player2Choice, startGame, checkIfGameOver, getCountP2, getCountP1, getNumberOfPlays };
+module.exports = { compare, chooseNumberOfGame, startGame, checkIfGameOver, getCountP2, getCountP1, getNumberOfPlays };
