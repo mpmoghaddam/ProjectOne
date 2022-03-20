@@ -1,18 +1,10 @@
-# C8 Rock-Paper-Scissors
+# PROJECT-ONE (Rock, Paper and Scissors)
 
-This is the code we developed in class together, associated with the Flowchart we created.
+
 
 # Getting Started
 
-1. Get this repository: `git clone https://github.com/EvolveU-FSD/c8-rock-paper-scissors`
-2. Have NPM fetch the dependencies listed in package.json: `npm install`
-3. Run the program: `node index.js`
-
-
-# Ideas for experimenting
-
-- get names of player 1 and 2
-- handle "bad input" from a player
-- limit the input choices for a player
-- automatically re-play a match when there is a draw
-- have the program support "best of 7 matches"
+1. Run the server.js file by writting "node server.js" in the Terminla.
+2. When you see the server is listening on port 4000 then open another Terminal window and run the curl command as " curl http://localhost:4000/startGame"
+3. The program will run as expected.
+4. Thanks for any feedback
