@@ -15,7 +15,7 @@ const chooseNumberOfGame = (numberOfPlaysInput) => {
     return `Please enter an odd number and greater than 1.`;
 
   } else {
-    return `you want to play ${numberOfPlays} times curl http://localhost:4000/player1Selection?selection1={selection1}`;
+    return `you want to play ${numberOfPlays} times. Please choose your option here: curl http://localhost:4000/player1Selection?selection1={selection1}`;
   }
 }
 const getCountP1 = () => {
