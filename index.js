@@ -10,7 +10,7 @@ const startGame = () => {
 
 const chooseNumberOfGame = (numberOfPlaysInput) => {
   numberOfPlays = numberOfPlaysInput;
-  if (numberOfPlaysInput % 2 === 0 || numberOfPlaysInput <= 1) {
+  if (numberOfPlaysInput % 2 === 0 || numberOfPlaysInput <= 1 || isNaN(numberOfPlaysInput)){
 
     return `Please enter an odd number and greater than 1.`;
 
@@ -43,35 +43,35 @@ curl http://localhost:4000/player1Selection?selection1={selection1}\n`
 }
 
 function compare(a, b, c, d) {
-  if (a === "rock" || a === "Rock") {
+  if (a === "rock") {
 
-    if (b === "rock" || b === "Rock") {
+    if (b === "rock" ) {
       return "draw"
-    } else if (b === "paper" || b === "Paper") {
+    } else if (b === "paper") {
       countp2++
       return d;
-    } else if (b === "scissors" || b === "Scissors") {
+    } else if (b === "scissors") {
       countp1++
       return c;
     }
-  } else if (a === "paper" || a === "Paper") {
-    if (b === 'rock' || b === "Rock") {
+  } else if (a === "paper") {
+    if (b === 'rock') {
       countp1++
       return c;
-    } else if (b === 'paper' || b === "Paper") {
+    } else if (b === 'paper') {
       return 'draw';
-    } else if (b === 'scissors' || b === "Scissors") {
+    } else if (b === 'scissors' ) {
       countp2++
       return d;
     }
-  } else if (a === "scissors" || a === "Scissors") {
-    if (b === 'rock' || b === "Rock") {
+  } else if (a === "scissors") {
+    if (b === 'rock') {
       countp2++
       return d;
-    } else if (b === 'paper' || b === "Paper") {
+    } else if (b === 'paper') {
       countp1++
       return c;
-    } else if (b === 'scissors' || b === "Scissors") {
+    } else if (b === 'scissors') {
       return 'draw';
     }
   }
