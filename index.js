@@ -15,7 +15,8 @@ const chooseNumberOfGame = (numberOfPlaysInput) => {
     return `Please enter an odd number and greater than 1.`;
 
   } else {
-    return `you want to play ${numberOfPlays} times. Please choose your option here: curl http://localhost:4000/player1Selection?selection1={selection1}`;
+    return `you want to play ${numberOfPlays} times. Please choose your option here: 
+curl http://localhost:4000/player1Selection?selection1={selection1}`;
   }
 }
 const getCountP1 = () => {
@@ -34,7 +35,8 @@ const checkIfGameOver = (countp1, countp2, numberOfPlays, player1, player2) => {
   if (countp1 >= ((numberOfPlays - 1) / 2) + 1 || countp2 >= ((numberOfPlays - 1) / 2) + 1) {
     let player1Name = player1;
     let player2Name = player2;
-    return ` The game is over. ${player1Name} won ${countp1} time(s), ${player2Name} won ${countp2} time(s) out of ${countp1 + countp2} total plays.`
+    return `The game is over. ${player1Name} won ${countp1} time(s), ${player2Name} 
+won ${countp2} time(s) out of ${countp1 + countp2} total plays.`
   } else {
     return `Please continue playing the game, curl http://localhost:4000/player1Selection?selection1={selection1}`
   }
