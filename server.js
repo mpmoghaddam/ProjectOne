@@ -11,7 +11,8 @@ let player2;
 
 app.get('/startGame', (req, res) => {
   res.send(
-    "Hello player1, please eneter your name: curl http://localhost:4000/player1Name?name={player1Name}"
+    `Hello player1, please eneter your name:\n
+curl http://localhost:4000/player1Name?name={player1Name}\n`
   );
 });
 
@@ -19,8 +20,8 @@ app.get('/player1Name', (req, res) => {
   let name = req.query.name;
   player1 = name;
   res.send(
-    `Welcome to the game,${player1}. Hello player2, please enetr your name:
-curl http://localhost:4000/player2Name?name={player2Name}`
+    `Welcome to the game,${player1}. Hello player2, please enetr your name:\n
+curl http://localhost:4000/player2Name?name={player2Name}\n`
   );
 });
 
@@ -28,8 +29,8 @@ app.get('/player2Name', (req, res) => {
   let name = req.query.name;
   player2 = name;
   res.send(
-    `Welcome to the game,${player2}. Please enter and odd number and greater than 1
-regarding how many times you wanna play: curl http://localhost:4000/numberOfPlays?number={number}`
+    `Welcome to the game,${player2}. Please enter and odd number and greater than 1 regarding how many times you wanna play:\n
+curl http://localhost:4000/numberOfPlays?number={number}\n`
   );
 });
 
@@ -44,11 +45,11 @@ app.get('/player1Selection', (req, res) => {
   player1Selection = selection1;
   if (player1Selection !== "rock" && player1Selection !== "Rock" && player1Selection !== "paper" && player1Selection !== "Paper" &&
     player1Selection !== "scissors" && player1Selection !== "Scissors") {
-    res.send(`${player1},you chose ${player1Selection}. Please enter the right selection from rock,
-paper and scissors by using curl http://localhost:4000/player1Selection?selection1={selection1}`)
+    res.send(`${player1},you chose ${player1Selection}. Please enter the right selection from rock,\n
+paper and scissors by using curl http://localhost:4000/player1Selection?selection1={selection1}\n`)
   } else {
-    res.send(`${player1},you chose ${player1Selection}. ${player2}, please select your option from here:
-curl http://localhost:4000/player2Selection?selection2={selection2}`)
+    res.send(`${player1},you chose ${player1Selection}. ${player2}, please select your option from here:\n
+curl http://localhost:4000/player2Selection?selection2={selection2}\n`)
   }
 });
 
@@ -57,22 +58,22 @@ app.get('/player2Selection', (req, res) => {
   player2Selection = selection2;
   if (player2Selection !== "rock" && player2Selection !== "Rock" && player2Selection !== "paper" && player2Selection !== "Paper" &&
     player2Selection !== "scissors" && player2Selection !== "Scissors") {
-    res.send(`${player2}, you chose ${player2Selection}. Please enter the right selection from rock, paper and
-scissors by using curl http://localhost:4000/player2Selection?selection2={selection2} `)
+    res.send(`${player2}, you chose ${player2Selection}. Please enter the right selection from rock, paper and scissors by using:\n
+curl http://localhost:4000/player2Selection?selection2={selection2}\n`)
   } else {
-    res.send(`${player2}, you selected ${player2Selection}. Please see the result of the game for this time
-here: curl http://localhost:4000/gameResultThisTime`)
+    res.send(`${player2}, you selected ${player2Selection}. Please see the result of the game for this time here:\n
+curl http://localhost:4000/gameResultThisTime\n`)
   }
 });
 
 app.get('/gameResultThisTime', (req, res) => {
   let winnerThisTime = compare(player1Selection, player2Selection, player1, player2)
   if (winnerThisTime === "draw") {
-    res.send(`The game is ${winnerThisTime} !!!. To continue please go to
-curl http://localhost:4000/player1Selection?selection1={selection1}`)
+    res.send(`The game is ${winnerThisTime} !!!. To continue please go to:\n
+curl http://localhost:4000/player1Selection?selection1={selection1}\n`)
   } else {
-    res.send(`The winner for this time is ${winnerThisTime}. To continue
-please go to curl http://localhost:4000/gameFinalResult`)
+    res.send(`The winner for this time is ${winnerThisTime}. To continue please go to:\n
+curl http://localhost:4000/gameFinalResult\n`)
   }
 });
 
