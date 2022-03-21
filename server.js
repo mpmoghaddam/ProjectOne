@@ -35,7 +35,7 @@ app.get('/numberOfPlays', (req, res) => {
   let number = req.query.number;
   let numberOfPlaysResponse = chooseNumberOfGame(number)
   res.send(numberOfPlaysResponse);
-});
+  });
 
 app.get('/player1Selection', (req, res) => {
   let selection1 = req.query.selection1;
